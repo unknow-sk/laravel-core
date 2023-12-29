@@ -2,11 +2,11 @@
 
 namespace UnknowSk\Core\Http\Middleware;
 
-use UnknowSk\Core\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use UnknowSk\Core\Providers\RouteServiceProvider;
 
 class RedirectIfAuthenticated
 {

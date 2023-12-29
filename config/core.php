@@ -44,10 +44,10 @@ return [
     'languages' => [
         'default' => env('APP_LOCALE', 'en'),
         'supported' => [
-//            'en' => 'English',
-//            'de' => 'Deutsch',
-//            'sk' => 'Slovenčina',
-//            'cz' => 'Čeština',
+            //            'en' => 'English',
+            //            'de' => 'Deutsch',
+            //            'sk' => 'Slovenčina',
+            //            'cz' => 'Čeština',
         ],
     ],
     /*

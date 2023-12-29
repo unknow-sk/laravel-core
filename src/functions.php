@@ -35,7 +35,7 @@ if (! function_exists('create_app')) {
             $app->useEnvironmentPath($dir);
         }
 
-        if (!file_exists($app->configPath('core.php'))) {
+        if (! file_exists($app->configPath('core.php'))) {
             $app->useConfigPath(dirname(__DIR__).DS.'config');
         }
 
@@ -133,7 +133,7 @@ if (! function_exists('not_zero')) {
 }
 
 if (! function_exists('array_fill_value_keys')) {
-    function array_fill_value_keys(array|object|null $array, int|string $key = null): array
+    function array_fill_value_keys(array|object|null $array, int|string|null $key = null): array
     {
         if ($array === null) {
             return [];
@@ -164,7 +164,7 @@ if (! function_exists('format')) {
             $items = $first;
         }
 
-        if (class_exists('\\UnknowSk\\Core\\Formatters\\'. Str::studly($formatter).'Formatter')) {
+        if (class_exists('\\UnknowSk\\Core\\Formatters\\'.Str::studly($formatter).'Formatter')) {
             $formatter = '\\UnknowSk\\Core\\Formatters\\'.Str::studly($formatter).'Formatter';
 
             return call_user_func([new $formatter(...$items), 'format']);
@@ -213,13 +213,15 @@ if (! function_exists('array_merge_unique')) {
 }
 
 if (! function_exists('localized_url')) {
-    function localized_url($path, $locale = null) {
-        if (!$locale) {
+    function localized_url($path, $locale = null)
+    {
+        if (! $locale) {
             $locale = app()->getLocale();
             if ($locale == config('languages.default')) {
                 $locale = '';
             }
         }
-        return url(($locale ? $locale.'/' : '') . $path);
+
+        return url(($locale ? $locale.'/' : '').$path);
     }
 }
